@@ -1,0 +1,122 @@
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	id="com.weemo"
+	version="4.2.0">
+
+	<name>Weemo</name>
+	<description>Weemo cloud integration</description>
+	<author>Weemo</author>
+	<license>Weemo</license>
+	<repo>https://github.com/weemo/Phonegap-SDK.git</repo>
+	
+	<engines>
+		<engine name="cordova" version=">=3.1.0" />
+	</engines>
+
+
+	<js-module src="www/Weemo.js" name="Weemo">
+		<clobbers target="Weemo" />
+	</js-module>
+
+	<platform name="android">
+		<source-file src="android/src/com/weemo/phonegap/WeemoAndroidPhonegap.java" target-dir="src/com/weemo/phonegap" />
+		<source-file src="android/src/com/weemo/phonegap/CallActivity.java" target-dir="src/com/weemo/phonegap" />
+		<source-file src="android/src/com/weemo/phonegap/CallFragment.java" target-dir="src/com/weemo/phonegap" />
+
+		<source-file src="android/libs/WeemoAndroidSDK.jar" target-dir="libs" />
+		<source-file src="android/libs/armeabi-v7a/libWeemoSDK.so" target-dir="libs/armeabi-v7a" />
+
+		<source-file src="android/libs/NativeCrashHandler-v1.2.jar" target-dir="libs" />
+
+		<source-file src="android/res/drawable-xhdpi/weemo_end_call.png" target-dir="res/drawable-xhdpi" />
+		<source-file src="android/res/drawable-xhdpi/weemo_mic_muted.png" target-dir="res/drawable-xhdpi" />
+		<source-file src="android/res/drawable-xhdpi/weemo_mic_on.png" target-dir="res/drawable-xhdpi" />
+		<source-file src="android/res/drawable-xhdpi/weemo_switch_video.png" target-dir="res/drawable-xhdpi" />
+		<source-file src="android/res/drawable-xhdpi/weemo_video_off.png" target-dir="res/drawable-xhdpi" />
+		<source-file src="android/res/drawable-xhdpi/weemo_video_on.png" target-dir="res/drawable-xhdpi" />
+		<source-file src="android/res/drawable-xhdpi/weemo_volume_muted.png" target-dir="res/drawable-xhdpi" />
+		<source-file src="android/res/drawable-xhdpi/weemo_volume_on.png" target-dir="res/drawable-xhdpi" />
+
+		<source-file src="android/res/layout/weemo_fragment_call.xml" target-dir="res/layout" />
+
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="weemo">
+				<param name="android-package" value="com.weemo.phonegap.WeemoAndroidPhonegap" />
+			</feature>
+		</config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.RECORD_AUDIO" />
+			<uses-permission android:name="android.permission.CAMERA" />
+			<uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+			<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+		</config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity
+				android:name="com.weemo.phonegap.CallActivity"
+				android:screenOrientation="landscape"
+				android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+			</activity>
+		</config-file>
+	</platform>
+
+	<platform name="ios">
+		<header-file src="ios/src/WeemoPlugin.h" />
+		<source-file src="ios/src/WeemoPlugin.mm" />
+		<resource-file src="ios/src/CallViewController.xib" />
+
+		<header-file src="ios/src/CallViewController.h" />
+		<source-file src="ios/src/CallViewController.m" />
+
+		<resource-file src="ios/res/bkgd_active.png" />
+		<resource-file src="ios/res/bkgd_active@2x.png" />
+		<resource-file src="ios/res/bkgd_inactive.png" />
+		<resource-file src="ios/res/bkgd_inactive@2x.png" />
+		<resource-file src="ios/res/bkgd_red.png" />
+		<resource-file src="ios/res/bkgd_red@2x.png" />
+		<resource-file src="ios/res/bkgd_red@2x~ipad.png" />
+		<resource-file src="ios/res/bkgd_red~ipad.png" />
+		<resource-file src="ios/res/call_HD.png" />
+		<resource-file src="ios/res/call_HD@2x.png" />
+		<resource-file src="ios/res/call_SD.png" />
+		<resource-file src="ios/res/call_SD@2x.png" />
+		<resource-file src="ios/res/call_hangup.png" />
+		<resource-file src="ios/res/call_hangup@2x.png" />
+		<resource-file src="ios/res/call_mute.png" />
+		<resource-file src="ios/res/call_mute@2x.png" />
+		<resource-file src="ios/res/call_return.png" />
+		<resource-file src="ios/res/call_return@2x.png" />
+		<resource-file src="ios/res/call_switch.png" />
+		<resource-file src="ios/res/call_switch@2x.png" />
+		<resource-file src="ios/res/call_video.png" />
+		<resource-file src="ios/res/call_video@2x.png" />
+
+		<framework src="AudioToolbox.framework" />
+		<framework src="CoreVideo.framework" />
+		<framework src="CoreMedia.framework" />
+		<framework src="QuartzCore.framework" />
+		<framework src="CFNetwork.framework" />
+		<framework src="AVFoundation.framework" />
+		<framework src="CoreGraphics.framework" />
+
+		<config-file target="config.xml" parent="/*">
+			<feature name="weemo">
+				<param name="ios-package" value="WeemoPlugin" />
+			</feature>
+		</config-file>
+
+		<source-file src="ios/libs/libspeex.ios.a" framework="true" />
+		<source-file src="ios/libs/libvpx.ios.a" framework="true" />
+
+		<source-file src="ios/libs/WeemoSDK/WeemoSDK.a" framework="true" />
+		<header-file src="ios/libs/WeemoSDK/Weemo.h" />
+		<header-file src="ios/libs/WeemoSDK/WeemoCall.h" />
+		<header-file src="ios/libs/WeemoSDK/WeemoData.h" />
+
+	</platform>
+</plugin>

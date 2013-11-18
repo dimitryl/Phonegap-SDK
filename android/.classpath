@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="deps/cordova-3.1.0.jar"/>
+	<classpathentry kind="lib" path="libs/WeemoAndroidSDK.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/salomon/Workspaces/android-sdk-macosx/platforms/android-18/android.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

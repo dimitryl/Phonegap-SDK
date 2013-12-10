@@ -8,8 +8,8 @@
  * This class is an adaptation of the CallViewController presented in the Helper application of the WeemoSDK.
  */
 
-#import <WeemoSDK/WeemoData.h>
-#import <WeemoSDK/WeemoCall.h>
+#import "WeemoData.h"
+#import "WeemoCall.h"
 @protocol WeemoCallWindowDelegate <NSObject>
 - (void)cwHangup:(id)sender;
 @end

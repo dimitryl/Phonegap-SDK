@@ -11,8 +11,8 @@
  */
 
 #import <Cordova/CDVPlugin.h>
-#import <WeemoSDK/Weemo.h>
-#import <WeemoSDK/WeemoCall.h>
+#import "Weemo.h"
+#import "WeemoCall.h"
 #import "CallViewController.h"
 
 @protocol WeemoControlDelegate <NSObject>

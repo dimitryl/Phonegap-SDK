@@ -237,7 +237,7 @@
 	[[self commandDelegate]evalJs:[NSString stringWithFormat:@"Weemo.internal.videoInChanged(%d, %s);", [sender callid], isReceiving?"true":"false"] scheduledOnRunLoop:YES];
 	dispatch_async(dispatch_get_main_queue(), ^{
 		[[cvc_active v_videoIn]setHidden:!isReceiving];
-		[cvc_active resizeVideoIn];
+		[cvc_active resizeVideoIn:YES];
 	});
 }
 
@@ -248,7 +248,7 @@
 	dispatch_async(dispatch_get_main_queue(), ^{
 		[[cvc_active b_toggleVideo]setSelected:isSending];
 		[[cvc_active v_videoOut]setHidden:!isSending];
-		[cvc_active resizeVideoIn];
+		[cvc_active resizeVideoIn:YES];
 	});
 }
 
@@ -257,7 +257,7 @@
 	dispatch_async(dispatch_get_main_queue(), ^{
 		NSLog(@">>>> %s: %d",__FUNCTION__,  profile);
 		[[cvc_active b_profile]setSelected:(profile != 0)];
-		[cvc_active resizeVideoIn];
+		[cvc_active resizeVideoIn:YES];
 	});
 }
 
@@ -266,7 +266,7 @@
 	dispatch_async(dispatch_get_main_queue(), ^{
 		NSLog(@">>>> %s: %@",__FUNCTION__,  (source == 0)?@"Front":@"Back");
 		[[cvc_active b_switchVideo] setSelected:!(source == 0)];
-		[cvc_active resizeVideoIn];
+		[cvc_active resizeVideoIn:YES];
 	});
 }
 

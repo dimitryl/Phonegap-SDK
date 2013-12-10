@@ -7,7 +7,7 @@
 //
 
 #import "CallViewController.h"
-#import <WeemoSDK/Weemo.h>
+#import "Weemo.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface CallViewController ()
